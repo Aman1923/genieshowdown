@@ -105,13 +105,13 @@ const Home = (props: HomeProps) => {
         if (!status?.err) {
           setAlertState({
             open: true,
-            message: "Congratulations! Mint succeeded!",
+            message: "Huahahahaha! Genies in your wallet!",
             severity: "success",
           });
         } else {
           setAlertState({
             open: true,
-            message: "Mint failed! Please try again!",
+            message: "Mint error! Genie is in another lamp!",
             severity: "error",
           });
         }
@@ -167,6 +167,7 @@ const Home = (props: HomeProps) => {
 
   return (
     <main>
+      <div className="mint-container">
       {wallet && (
         <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
       )}
@@ -175,9 +176,9 @@ const Home = (props: HomeProps) => {
 
       {wallet && <p>Total Available: {itemsAvailable}</p>}
 
-      {wallet && <p>Redeemed: {itemsRedeemed}</p>}
+      {wallet && <p>Genies Minted: {itemsRedeemed}</p>}
 
-      {wallet && <p>Remaining: {itemsRemaining}</p>}
+      {wallet && <p>Genies Left: {itemsRemaining}</p>}
 
       <MintContainer>
         {!wallet ? (
@@ -220,6 +221,7 @@ const Home = (props: HomeProps) => {
           {alertState.message}
         </Alert>
       </Snackbar>
+      </div>
     </main>
   );
 };
